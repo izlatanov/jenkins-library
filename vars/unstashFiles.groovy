@@ -11,7 +11,7 @@ import com.sap.piper.Utils
 @GenerateDocumentation
 def call(Map parameters = [:]) {
 
-    List toUnstash = []
+    def toUnstash = []
 
     handlePipelineStepErrors(stepName: 'unstashFiles', stepParameters: parameters) {
         def script = parameters.script

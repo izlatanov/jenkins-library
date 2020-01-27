@@ -16,12 +16,12 @@ def call(Map parameters = [:]) {
 
         //NOTE: We do not delete the directory in case Jenkins runs on Kubernetes.
         // deleteDir() is not required in pods, but would be nice to have the same behaviour and leave a clean fileSystem.
-        if(!isInsidePod(script)) {
+        if (!isInsidePod(script)) {
             deleteDir()
         }
     }
 }
 
-private boolean isInsidePod(Script script){
+private boolean isInsidePod(script){
     return script.env.POD_NAME
 }
