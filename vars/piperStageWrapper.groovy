@@ -95,7 +95,7 @@ private void executeStage(script, originalStage, stageName, config, utils) {
 
     } finally {
         //Perform stashing of selected files in workspace
-        shashFiles(script: script, stage: stageName)
+        stashFiles(script: script, stage: stageName)
 
         def duration = System.currentTimeMillis() - startTime
         utils.pushToSWA([
