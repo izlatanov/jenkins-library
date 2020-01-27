@@ -12,7 +12,7 @@ def call(Map parameters = [:]) {
 
         List stashes = script.commonPipelineEnvironment.configuration.stageStashes?.get(stage)?.stashes ?: []
 
-        Utils.stashList(script, stashes)
+        Utils.stashList(script as Object, stashes as List)
 
         //NOTE: We do not delete the directory in case Jenkins runs on Kubernetes.
         // deleteDir() is not required in pods, but would be nice to have the same behaviour and leave a clean fileSystem.

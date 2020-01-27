@@ -20,7 +20,7 @@ def call(Map parameters = [:]) {
 
         deleteDir()
         toUnstash += script.commonPipelineEnvironment.configuration.stageStashes?.get(stage)?.unstash ?: []
-        Utils.unstashAll(toUnstash)
+        Utils.unstashAll(toUnstash as Object)
     }
 
     return toUnstash
