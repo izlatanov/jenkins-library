@@ -16,11 +16,13 @@ def call(Map parameters = [:]) {
     handlePipelineStepErrors(stepName: 'unstashFiles', stepParameters: parameters) {
         def script = parameters.script
         def stage = parameters.stage
+        def utils = parameters.juStabUtils ?: new Utils()
+
         toUnstash = parameters.stashContent ?: []
 
         deleteDir()
         toUnstash += script.commonPipelineEnvironment.configuration.stageStashes?.get(stage)?.unstash ?: []
-        Utils.unstashAll(toUnstash as Object)
+        utils.unstashAll(toUnstash)
     }
 
     return toUnstash
