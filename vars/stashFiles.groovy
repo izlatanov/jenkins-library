@@ -23,6 +23,6 @@ def call(Map parameters = [:]) {
     }
 }
 
-private boolean isInsidePod(Script cript){
+private boolean isInsidePod(Script script){
     return script.env.POD_NAME
 }
