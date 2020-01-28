@@ -61,7 +61,7 @@ private void executeStage(script, originalStage, stageName, config, utils) {
 
     try {
         // Add general stage stashes to config.stashContent
-        config.stashContent = unstashFiles(script: script, stage: stageName, stashContent : config.stashContent)
+        config.stashContent = unstashStageFiles(script: script, stage: stageName, stashContent : config.stashContent)
 
         /* Defining the sources where to look for a project extension and a repository extension.
         * Files need to be named like the executed stage to be recognized.
@@ -95,7 +95,7 @@ private void executeStage(script, originalStage, stageName, config, utils) {
 
     } finally {
         //Perform stashing of selected files in workspace
-        stashFiles(script: script, stage: stageName)
+        stashStageFiles(script: script, stage: stageName)
 
         def duration = System.currentTimeMillis() - startTime
         utils.pushToSWA([
