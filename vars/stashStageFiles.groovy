@@ -6,7 +6,7 @@ import com.sap.piper.Utils
  */
 @GenerateDocumentation
 def call(Map parameters = [:]) {
-    handlePipelineStepErrors(stepName: 'stashFiles', stepParameters: parameters) {
+    handlePipelineStepErrors(stepName: 'stashStageFiles', stepParameters: parameters) {
         def script = parameters.script
         def stage = parameters.stage
         def utils = parameters.juStabUtils ?: new Utils()

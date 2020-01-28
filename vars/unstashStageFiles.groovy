@@ -13,7 +13,7 @@ def call(Map parameters = [:]) {
 
     def toUnstash = []
 
-    handlePipelineStepErrors(stepName: 'unstashFiles', stepParameters: parameters) {
+    handlePipelineStepErrors(stepName: 'unstashStageFiles', stepParameters: parameters) {
         def script = parameters.script
         def stage = parameters.stage
         def utils = parameters.juStabUtils ?: new Utils()
